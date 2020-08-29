@@ -48,7 +48,7 @@ app.use(session({
     store
 }));
 app.use(fileMiddleware.single('avatar'));
-//app.use(helmet()); // adds secure headers to requests
+app.use(helmet()); // adds secure headers to requests
 app.use(
     helmet.permittedCrossDomainPolicies({
         permittedPolicies: "by-content-type",
