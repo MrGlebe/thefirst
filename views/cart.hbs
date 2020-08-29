@@ -1,0 +1,44 @@
+{{#if cart.courses.length}}
+    <table class="cart-table" id="cart">
+        <thead>
+            <tr>
+                <th>Изобр.</th>
+                <th>Название.</th>
+                <th class="center">Цена</th>
+                <th class="center">Количество</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        {{#each cart.courses}}
+            <tr>
+                <td><img src="{{img}}" style="width:100px; height:auto" alt="{{title}}"></td>
+
+                <td><a href="/courses/{{id}}" class="cart-item-cont">{{title}}</a></td>
+
+                <td class="center price"><span class="cart-item-price">{{price}}</span></td>
+
+                <td class="center"><span class="cart-item-val">{{value}}</span></td>
+
+                <td><button class="btn btn-primary cart-delete" data-id="{{id}}" data-csrf="{{@root.csrf}}">Удалить</button></td>
+            </tr>
+        {{/each}}
+    </table>
+
+    <table class="cart-table" id="cart_values">
+        <thead>
+        <tr>
+            <th>Товаров: <span id="cart_total">{{cart.totalValue}}</th>
+            <th>На сумму: <span class="price" id="cart_total_price">{{cart.totalPrice}}</span></th>
+        </tr>
+        </thead>
+    </table>
+    <br />
+
+    <form class="send-order" action="/orders" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" class="btn">Оформить заказ</button>
+    </form>
+
+{{else}}
+    <p>Корзина пуста</p>
+{{/if}}

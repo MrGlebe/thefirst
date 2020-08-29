@@ -1,0 +1,44 @@
+<h1>Ваш профиль, {{user.name}}</h1>
+
+<div class="row">
+    <div class="avatar col s6">
+
+        {{#if user.avatarUrl}}
+            <img src="{{user.avatarUrl}}"
+                 alt="{{user.name}}" />
+        {{else}}
+            <img src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg" alt="No photo" />
+        {{/if}}
+
+
+    </div>
+
+    <div class="col s6">
+        <form action="/profile" method="POST" novalidate enctype="multipart/form-data">
+
+            <p>Ваш email: <strong>{{user.email}}</strong></p>
+
+            <div class="input-field">
+                <input id="name" name="name" type="text" value="{{user.title}}" class="validate" required />
+                <label for="name">Имя</label>
+                <span class="helper-text" data-error="Введите имя"></span>
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Аватар</span>
+                    <input type="file" name="avatar">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+
+            <button type="submit" class="btn">Изменить данные</button>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+.cart-item-cont {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.cart-item-cont span {
+    display: flex;
+    font-size: 2rem;
+    padding: 0 10px;
+}
+
+.nav-wrapper {
+    padding: 0 20px;
+}
+.price {
+    font-size: 1.5rem;
+}
+.date {
+
+}
+.course {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.course h1 {
+    margin-bottom: 2rem;
+}
+
+.course img {
+    display: block;
+    max-width: 600px;
+    height: auto;
+}
+
+.course.price.big {
+    font-size: 2.5rem;
+}
+.auth-cont {
+    padding-top: 40px;
+}
+.alert {
+    display: block;
+    padding: 10px;
+    font-size:20px;
+    text-align: center;
+    background-color: #ff9c95;
+    color:#fff;
+}
+.success {
+    background-color: #26a69a;
+}
+.avatar IMG {
+    max-width:100%;
+}

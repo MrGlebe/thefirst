@@ -1,0 +1,75 @@
+<div class="auth-cont">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6"><a class="active" href="#login">Вход</a></li>
+                <li class="tab col s6"><a href="#register">Регистрация</a></li>
+            </ul>
+        </div>
+        <div id="login" class="col s6 offset-s3">
+            <h1>Вход на сайт</h1>
+
+            {{#if loginError}}
+                <p class="alert">{{loginError}}</p>
+            {{/if}}
+
+            {{#if message}}
+                <p class="success">{{message}}</p>
+            {{/if}}
+
+            <form action="/auth/login" method="POST" novalidate>
+                <div class="input-field">
+                    <input type="email" id="email" name="email" class="validate" required>
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="Введите Email"></span>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" name="password" class="validate" required>
+                    <label for="password">Пароль</label>
+                    <span class="helper-text" data-error="Введите пароль"></span>
+                </div>
+
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+
+                <button class="btn" type="submit">Войти</button>
+
+            </form>
+            <br/>
+            <a href="/auth/reset">Забыли пароль?</a>
+        </div>
+
+        <div id="register" class="col s6 offset-s3">
+            {{#if regError}}
+                <p class="alert">{{regError}}</p>
+            {{/if}}
+            <h1>Регистрация</h1>
+            <form action="/auth/register" method="POST" novalidate>
+                <div class="input-field">
+                    <input type="text" id="reg-name" name="name" class="validate">
+                    <label for="reg-name">Ваше имя</label>
+                    <span class="helper-text" data-error="Введите Имя"></span>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="reg-email" name="email" class="validate" required>
+                    <label for="reg-email">Email</label>
+                    <span class="helper-text" data-error="Введите Email"></span>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="reg-password" name="password" class="validate" required>
+                    <label for="reg-password">Пароль</label>
+                    <span class="helper-text" data-error="Введите пароль"></span>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="confirm-password" name="confirm" class="validate" required>
+                    <label for="confirm-password">Пароль еще раз</label>
+                    <span class="helper-text" data-error="Повторите пароль"></span>
+                </div>
+
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+
+                <button class="btn" type="submit">Зарегистрироваться</button>
+
+            </form>
+        </div>
+    </div>
+</div>
